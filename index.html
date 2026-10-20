@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>LUEUR NAIL | 뤼에르 수제 네일팁</title>
+  <!-- Favicon & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top Announcement Bar -->
+  <aside class="top-banner" role="banner">
+    <div class="container top-banner-inner">
+      <span class="banner-badge">NEW OPEN</span>
+      <p class="banner-text">첫 구매 고객 <strong>3,000원 웰컴 쿠폰</strong> 증정 & 3만원 이상 <strong>무료배송</strong> ✨</p>
+      <button class="top-banner-close" aria-label="배너 닫기" onclick="document.querySelector('.top-banner').style.display='none'">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Global Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <!-- Mobile Menu Trigger -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="메뉴 열기">
+        <i data-lucide="menu"></i>
+      </button>
+
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-logo" onclick="navigateTo('home')">
+        <span class="logo-en">LUEUR</span>
+        <span class="logo-sub">HANDMADE NAIL TIP</span>
+      </a>
+
+      <!-- Desktop Navigation Menu (6 핵심 메뉴) -->
+      <nav class="desktop-nav" aria-label="주요 메뉴">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active" data-target="home">HOME</a></li>
+          <li><a href="#shop" class="nav-link" data-target="shop">SHOP</a></li>
+          <li><a href="#style" class="nav-link" data-target="style">STYLE</a></li>
+          <li><a href="#sizeguide" class="nav-link" data-target="sizeguide">SIZE GUIDE</a></li>
+          <li><a href="#howtouse" class="nav-link" data-target="howtouse">HOW TO USE</a></li>
+          <li><a href="#review" class="nav-link" data-target="review">REVIEW</a></li>
+          <li><a href="#about" class="nav-link" data-target="about">ABOUT</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Utilities -->
+      <div class="header-utils">
+        <button class="util-btn" id="searchTriggerBtn" title="검색" aria-label="검색창 열기">
+          <i data-lucide="search"></i>
+        </button>
+        <button class="util-btn" id="wishlistTriggerBtn" title="찜한 상품" aria-label="찜한 상품 보기">
+          <i data-lucide="heart"></i>
+          <span class="badge-count wishlist-count" style="display:none">0</span>
+        </button>
+        <button class="util-btn cart-btn" id="cartTriggerBtn" title="장바구니" aria-label="장바구니 열기">
+          <i data-lucide="shopping-bag"></i>
+          <span class="badge-count cart-count" style="display:none">0</span>
+        </button>
+        <button class="util-btn mypage-btn" id="myPageTriggerBtn" title="마이페이지" aria-label="마이페이지 열기">
+          <i data-lucide="user"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Navigation Menu -->
+  <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <span class="logo-en">LUEUR NAIL</span>
+        <span class="drawer-desc">매일 기분 좋은 손끝의 변화</span>
+      </div>
+      <button class="drawer-close" id="mobileDrawerClose" aria-label="메뉴 닫기">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    <div class="drawer-quick-actions">
+      <a href="#shop" onclick="navigateTo('shop'); closeDrawer();" class="drawer-chip">✨ 베스트 셀러</a>
+      <a href="#sizeguide" onclick="navigateTo('sizeguide'); closeDrawer();" class="drawer-chip">📏 손톱 사이즈 측정</a>
+    </div>
+    <nav class="drawer-nav">
+      <ul>
+        <li><a href="#home" onclick="navigateTo('home'); closeDrawer();"><i data-lucide="home"></i> 홈 (HOME)</a></li>
+        <li><a href="#shop" onclick="navigateTo('shop'); closeDrawer();"><i data-lucide="sparkles"></i> 네일팁 SHOP</a></li>
+        <li><a href="#style" onclick="navigateTo('style'); closeDrawer();"><i data-lucide="palette"></i> 스타일 추천 (STYLE)</a></li>
+        <li><a href="#sizeguide" onclick="navigateTo('sizeguide'); closeDrawer();"><i data-lucide="ruler"></i> 사이즈 가이드 (SIZE)</a></li>
+        <li><a href="#howtouse" onclick="navigateTo('howtouse'); closeDrawer();"><i data-lucide="help-circle"></i> 붙이는 방법 (HOW TO)</a></li>
+        <li><a href="#review" onclick="navigateTo('review'); closeDrawer();"><i data-lucide="camera"></i> 착용 리뷰 (REVIEW)</a></li>
+        <li><a href="#about" onclick="navigateTo('about'); closeDrawer();"><i data-lucide="info"></i> 브랜드 스토리 (ABOUT)</a></li>
+      </ul>
+    </nav>
+    <div class="drawer-footer">
+      <p class="drawer-cs">CS 고객센터 : 02-1588-9284<br>평일 10:00 - 18:00 (점심 12:30 - 13:30)</p>
+      <div class="drawer-socials">
+        <span>Instagram @lueur_nail</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper (SPA Views) -->
+  <main class="site-main">
+
+    <!-- 1. HOME VIEW -->
+    <section id="view-home" class="view-section active">
+      <!-- Hero Banner -->
+      <div class="hero-section">
+        <div class="container hero-container">
+          <div class="hero-content">
+            <span class="hero-sub-tag">2026 Spring & Daily Collection</span>
+            <h1 class="hero-title">
+              손끝에 작은 변화를 더해요.<br>
+              <span class="highlight-text">오늘의 기분을 완성하는</span> 네일팁
+            </h1>
+            <p class="hero-desc">
+              네일샵 2시간 소요와 손톱 손상 없이, 1초 만에 완성하는 프리미엄 수제 젤 네일팁.
+              내 손톱 곡률에 꼭 맞는 자연스러운 핏을 지금 만나보세요.
+            </p>
+            <div class="hero-actions">
+              <button class="btn btn-primary" onclick="navigateTo('shop')">
+                신상품 보러가기 <i data-lucide="arrow-right"></i>
+              </button>
+              <button class="btn btn-outline" onclick="navigateTo('sizeguide')">
+                📏 내 손톱 사이즈 측정하기
+              </button>
+            </div>
+            <!-- Trust Factors -->
+            <div class="hero-trust">
+              <div class="trust-item">
+                <span class="trust-num">100%</span>
+                <span class="trust-lbl">수제 살롱 젤 퀄리티</span>
+              </div>
+              <div class="trust-item">
+                <span class="trust-num">1초</span>
+                <span class="trust-lbl">초간편 원터치 부착</span>
+              </div>
+              <div class="trust-item">
+                <span class="trust-num">4.9★</span>
+                <span class="trust-lbl">실구매 고객 만족도</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=900&q=80" alt="뤼에르 프리미엄 수제 네일팁 착용컷" class="hero-img">
+              <div class="floating-badge badge-1">
+                <span class="badge-icon">🌸</span>
+                <div class="badge-info">
+                  <strong>밀키 블러썸 핑크</strong>
+                  <small>이번 주 1위 베스트</small>
+                </div>
+              </div>
+              <div class="floating-badge badge-2">
+                <span class="badge-icon">✨</span>
+                <div class="badge-info">
+                  <strong>재사용 가능 에코 팁</strong>
+                  <small>손상 없는 간편 탈착</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Bar (고객이 믿고 사는 4가지 이유) -->
+      <section class="features-bar">
+        <div class="container features-grid">
+          <div class="feature-card">
+            <div class="feat-icon"><i data-lucide="sparkles"></i></div>
+            <div class="feat-text">
+              <h4>100% 수제 젤 시술</h4>
+              <p>기계 프린팅이 아닌 네일리스트의 정성 어린 수제 오버레이</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feat-icon"><i data-lucide="feather"></i></div>
+            <div class="feat-text">
+              <h4>답답함 없는 초경량 핏</h4>
+              <p>손톱 굴곡에 유연하게 밀착되어 이물감 없는 착용감</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feat-icon"><i data-lucide="rotate-ccw"></i></div>
+            <div class="feat-text">
+              <h4>다회용 재사용 가능</h4>
+              <p>프리미엄 젤 스티커로 팁 손상 없이 반복 사용</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feat-icon"><i data-lucide="shield-check"></i></div>
+            <div class="feat-text">
+              <h4>무료 사이즈 교환 안심케어</h4>
+              <p>첫 주문 시 사이즈 미스로 고민 없도록 1회 안심 교환</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Curation: "오늘 어떤 네일이 어울릴까?" -->
+      <section class="curation-section">
+        <div class="container">
+          <div class="curation-box">
+            <div class="curation-header">
+              <span class="sub-title">FINGERTIP CURATION</span>
+              <h3>오늘 어떤 무드를 연출하고 싶으신가요?</h3>
+              <p>당신의 기분과 상황을 선택하시면 손끝에 가장 잘 어울리는 네일을 즉시 찾아드립니다.</p>
+            </div>
+            <div class="curation-buttons" id="curationChips">
+              <button class="curation-chip active" data-filter="all">전체 무드</button>
+              <button class="curation-chip" data-filter="러블리">🌷 데이트 & 러블리</button>
+              <button class="curation-chip" data-filter="데일리">🤍 출근/등교 깔끔 데일리</button>
+              <button class="curation-chip" data-filter="시크">🖤 무드있는 모던 시크</button>
+              <button class="curation-chip" data-filter="글리터">✨ 빛나는 파티 & 글리터</button>
+              <button class="curation-chip" data-filter="웨딩">💍 웨딩 & 특별한 기념일</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BEST SELLER Section -->
+      <section class="section best-section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <span class="sub-title">BEST SELLER</span>
+              <h2 class="section-title">가장 많은 사랑을 받은 디자인</h2>
+              <p class="section-desc">첫 구매 고객 93%가 만족한 스테디셀러 네일팁입니다.</p>
+            </div>
+            <button class="view-more-link" onclick="navigateTo('shop')">
+              베스트 전체보기 <i data-lucide="chevron-right"></i>
+            </button>
+          </div>
+          <div class="product-grid" id="bestSellerGrid">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- STYLE CATEGORY Section -->
+      <section class="section style-cat-section">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="sub-title">STYLE EXPLORER</span>
+            <h2 class="section-title">분위기별 스타일 탐색</h2>
+            <p class="section-desc">색상뿐만 아니라 당신이 머무는 순간의 분위기로 골라보세요.</p>
+          </div>
+          <div class="style-category-grid">
+            <div class="style-cat-card" onclick="openStyleCategory('러블리')">
+              <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=600&q=80" alt="러블리 스타일">
+              <div class="style-cat-overlay">
+                <span class="cat-tag">LOVELY</span>
+                <h3>🌷 러블리 무드</h3>
+                <p>소프트 핑크, 하트, 리본 시럽</p>
+                <span class="btn-text">디자인 보기 &rarr;</span>
+              </div>
+            </div>
+            <div class="style-cat-card" onclick="openStyleCategory('데일리')">
+              <img src="https://images.unsplash.com/photo-1583001809873-a128495da465?auto=format&fit=crop&w=600&q=80" alt="데일리 스타일">
+              <div class="style-cat-overlay">
+                <span class="cat-tag">DAILY</span>
+                <h3>🤍 은은한 데일리</h3>
+                <p>자연스러운 피치 누드, 스킨톤</p>
+                <span class="btn-text">디자인 보기 &rarr;</span>
+              </div>
+            </div>
+            <div class="style-cat-card" onclick="openStyleCategory('시크')">
+              <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="시크 스타일">
+              <div class="style-cat-overlay">
+                <span class="cat-tag">CHIC</span>
+                <h3>🖤 모던 시크</h3>
+                <p>다크 에스프레소, 실버 마그넷</p>
+                <span class="btn-text">디자인 보기 &rarr;</span>
+              </div>
+            </div>
+            <div class="style-cat-card" onclick="openStyleCategory('글리터')">
+              <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80" alt="글리터 스타일">
+              <div class="style-cat-overlay">
+                <span class="cat-tag">GLITTER</span>
+                <h3>✨ 오로라 & 글리터</h3>
+                <p>영롱한 파츠와 홀로그램 펄</p>
+                <span class="btn-text">디자인 보기 &rarr;</span>
+              </div>
+            </div>
+            <div class="style-cat-card" onclick="openStyleCategory('프렌치')">
+              <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=600&q=80" alt="프렌치 스타일">
+              <div class="style-cat-overlay">
+                <span class="cat-tag">FRENCH</span>
+                <h3>🎀 클래식 프렌치</h3>
+                <p>밀키 화이트, 마이크로 프렌치</p>
+                <span class="btn-text">디자인 보기 &rarr;</span>
+              </div>
+            </div>
+            <div class="style-cat-card" onclick="openStyleCategory('웨딩')">
+              <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=600&q=80" alt="특별한 날 스타일">
+              <div class="style-cat-overlay">
+                <span class="cat-tag">SPECIAL</span>
+                <h3>💍 특별한 날 & 웨딩</h3>
+                <p>스톤 파츠, 은은한 실크 펄</p>
+                <span class="btn-text">디자인 보기 &rarr;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW ARRIVAL Section -->
+      <section class="section new-section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <span class="sub-title">NEW ARRIVAL</span>
+              <h2 class="section-title">이번 주 신규 컬렉션</h2>
+              <p class="section-desc">계절의 설렘을 담아 새롭게 런칭된 감각적인 팁 디자인</p>
+            </div>
+            <button class="view-more-link" onclick="navigateTo('shop')">
+              신상품 전체보기 <i data-lucide="chevron-right"></i>
+            </button>
+          </div>
+          <div class="product-grid" id="newArrivalGrid">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Size Guide Banner CTA -->
+      <section class="size-cta-banner">
+        <div class="container size-cta-inner">
+          <div class="size-cta-info">
+            <span class="banner-pill">FIRST TIME BUYER</span>
+            <h3>"네일팁, 내 손톱에 안 맞을까 걱정되시나요?"</h3>
+            <p>
+              집에 있는 자 하나로 1분 만에 측정할 수 있는 상세 가이드와 
+              손톱 폭별 표준 사이즈 조견표를 확인해보세요.
+            </p>
+            <div class="cta-btns">
+              <button class="btn btn-primary" onclick="navigateTo('sizeguide')">
+                📏 3분 손톱 측정 가이드 보기
+              </button>
+              <button class="btn btn-outline-white" onclick="navigateTo('howtouse')">
+                💗 1초 부착 & 제거 방법
+              </button>
+            </div>
+          </div>
+          <div class="size-cta-graphic">
+            <div class="size-step-preview">
+              <div class="step-mini"><span class="step-num">01</span><span>가장 넓은 폭 측정</span></div>
+              <div class="step-mini"><span class="step-num">02</span><span>손가락별 mm 기록</span></div>
+              <div class="step-mini"><span class="step-num">03</span><span>S / M / L 매칭</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Real Photo Review Showcase -->
+      <section class="section photo-review-section">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="sub-title">REAL REVIEWS</span>
+            <h2 class="section-title">고객님들의 실제 착용 후기</h2>
+            <p class="section-desc">"진짜 네일샵에서 받은 것처럼 감쪽같아요!" 생생한 포토 리뷰를 확인하세요.</p>
+          </div>
+          <div class="review-grid" id="homeReviewGrid">
+            <!-- Rendered by JS -->
+          </div>
+          <div class="text-center review-more-wrap">
+            <button class="btn btn-outline" onclick="navigateTo('review')">
+              포토 리뷰 전체보기 (2,480개) <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Instagram Community Lookbook -->
+      <section class="section instagram-section">
+        <div class="container">
+          <div class="insta-header">
+            <div>
+              <span class="sub-title">INSTAGRAM @LUEUR_NAIL</span>
+              <h3 class="insta-title">손끝 갤러리에 당신을 태그해주세요</h3>
+            </div>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="insta-link">
+              <i data-lucide="instagram"></i> 팔로우하고 신상 소식 받기
+            </a>
+          </div>
+          <div class="insta-grid">
+            <div class="insta-item"><img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=400&q=80" alt="Instagram 1"><div class="insta-hover"><i data-lucide="heart"></i> 1.2k</div></div>
+            <div class="insta-item"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=400&q=80" alt="Instagram 2"><div class="insta-hover"><i data-lucide="heart"></i> 856</div></div>
+            <div class="insta-item"><img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=400&q=80" alt="Instagram 3"><div class="insta-hover"><i data-lucide="heart"></i> 2.4k</div></div>
+            <div class="insta-item"><img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=400&q=80" alt="Instagram 4"><div class="insta-hover"><i data-lucide="heart"></i> 940</div></div>
+            <div class="insta-item"><img src="https://images.unsplash.com/photo-1583001809873-a128495da465?auto=format&fit=crop&w=400&q=80" alt="Instagram 5"><div class="insta-hover"><i data-lucide="heart"></i> 1.5k</div></div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- 2. SHOP VIEW -->
+    <section id="view-shop" class="view-section">
+      <div class="page-title-banner">
+        <div class="container">
+          <span class="sub-title">COLLECTION</span>
+          <h2>네일팁 SHOP</h2>
+          <p>내 손끝의 무드를 완성하는 핸드메이드 젤 팁 컬렉션</p>
+        </div>
+      </div>
+
+      <div class="container shop-container">
+        <!-- Style Filter Tab Pills -->
+        <div class="shop-category-tabs" id="shopCategoryTabs">
+          <button class="shop-tab-btn active" data-cat="all">전체보기</button>
+          <button class="shop-tab-btn" data-cat="best">🔥 BEST</button>
+          <button class="shop-tab-btn" data-cat="new">✨ NEW</button>
+          <button class="shop-tab-btn" data-cat="러블리">🌷 러블리</button>
+          <button class="shop-tab-btn" data-cat="데일리">🤍 데일리</button>
+          <button class="shop-tab-btn" data-cat="시크">🖤 시크</button>
+          <button class="shop-tab-btn" data-cat="글리터">✨ 글리터</button>
+          <button class="shop-tab-btn" data-cat="프렌치">🎀 프렌치</button>
+          <button class="shop-tab-btn" data-cat="sale">🏷️ SALE</button>
+        </div>
+
+        <!-- Filter & Sort Control Bar -->
+        <div class="filter-sort-bar">
+          <div class="filter-group">
+            <!-- Shape Filter -->
+            <div class="select-wrapper">
+              <label for="shapeFilter" class="sr-only">쉐입 필터</label>
+              <select id="shapeFilter" onchange="applyShopFilters()">
+                <option value="all">팁 쉐입 전체</option>
+                <option value="숏 스퀘어">숏 스퀘어 (활동성 편함)</option>
+                <option value="숏 오벌">숏 오벌 (자연스러운 달걀형)</option>
+                <option value="미디엄 아몬드">미디엄 아몬드 (손가락 길어보임)</option>
+                <option value="코핀">코핀 (화려한 롱 핏)</option>
+              </select>
+            </div>
+            <!-- Color Tone Filter -->
+            <div class="select-wrapper">
+              <label for="toneFilter" class="sr-only">컬러 톤 필터</label>
+              <select id="toneFilter" onchange="applyShopFilters()">
+                <option value="all">컬러 톤 전체</option>
+                <option value="핑크">핑크 & 코랄</option>
+                <option value="누드">누드 & 스킨톤</option>
+                <option value="화이트">화이트 & 시럽</option>
+                <option value="블랙">블랙 & 그레이</option>
+                <option value="라벤더">라벤더 & 블루</option>
+              </select>
+            </div>
+            <!-- Price Range Filter -->
+            <div class="select-wrapper">
+              <label for="priceFilter" class="sr-only">가격대 필터</label>
+              <select id="priceFilter" onchange="applyShopFilters()">
+                <option value="all">가격 전체</option>
+                <option value="under15">15,000원 이하</option>
+                <option value="15to20">15,000원 ~ 20,000원</option>
+                <option value="over20">20,000원 이상</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Sort Bar -->
+          <div class="sort-group">
+            <span class="product-total-count">총 <strong id="shopProductCount">0</strong>개 상품</span>
+            <div class="select-wrapper">
+              <label for="sortOrder" class="sr-only">정렬 방식</label>
+              <select id="sortOrder" onchange="applyShopFilters()">
+                <option value="popular">인기순</option>
+                <option value="new">최신순</option>
+                <option value="review">리뷰 많은순</option>
+                <option value="priceAsc">낮은 가격순</option>
+                <option value="priceDesc">높은 가격순</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid shop-product-grid" id="shopProductGrid">
+          <!-- Rendered by JS -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-product-state" id="emptyShopState" style="display:none">
+          <i data-lucide="package-search"></i>
+          <h3>조건에 맞는 상품이 없습니다.</h3>
+          <p>다른 필터를 선택하시거나 전체보기를 눌러주세요.</p>
+          <button class="btn btn-outline" onclick="resetShopFilters()">필터 초기화</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. STYLE VIEW (스타일 큐레이션) -->
+    <section id="view-style" class="view-section">
+      <div class="page-title-banner">
+        <div class="container">
+          <span class="sub-title">STYLE INSPIRATION</span>
+          <h2>어떤 무드가 어울릴까요?</h2>
+          <p>매일 달라지는 기분, TPO에 맞춘 뤼에르만의 감각적인 스타일 제안</p>
+        </div>
+      </div>
+
+      <div class="container style-curation-container">
+        <!-- Style Story 1: 러블리 -->
+        <div class="style-story-row">
+          <div class="style-story-media">
+            <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=700&q=80" alt="러블리 무드">
+          </div>
+          <div class="style-story-info">
+            <span class="style-tag">LOOK 01 • LOVELY</span>
+            <h3>두근거리는 설렘, 은은한 하트 & 핑크 시럽</h3>
+            <p>
+              데이트, 벚꽃 나들이, 사랑스러운 분위기를 완성하고 싶을 때 추천합니다.
+              자연스러운 물먹은 시럽 베이스에 사랑스러운 은은한 펄감이 손끝을 화사하게 밝혀줍니다.
+            </p>
+            <div class="style-recommend-chips">
+              <span>#소프트핑크</span><span>#하트파츠</span><span>#데이트네일</span>
+            </div>
+            <button class="btn btn-primary" onclick="filterByStyleAndGoShop('러블리')">
+              러블리 컬렉션 보러가기 <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Style Story 2: 데일리 -->
+        <div class="style-story-row reverse">
+          <div class="style-story-media">
+            <img src="https://images.unsplash.com/photo-1583001809873-a128495da465?auto=format&fit=crop&w=700&q=80" alt="데일리 무드">
+          </div>
+          <div class="style-story-info">
+            <span class="style-tag">LOOK 02 • DAILY CHIC</span>
+            <h3>차분하고 단정한, 스킨톤 & 피치 누드</h3>
+            <p>
+              직장 출근길, 학교, 중요한 면접 자리에서도 부담 없는 자연스러움.
+              내 손톱 본연의 맑은 핑크빛을 살려 손가락이 가장 길고 정갈해 보이는 룩입니다.
+            </p>
+            <div class="style-recommend-chips">
+              <span>#스킨톤누드</span><span>#직장인네일</span><span>#숏스퀘어</span>
+            </div>
+            <button class="btn btn-primary" onclick="filterByStyleAndGoShop('데일리')">
+              데일리 컬렉션 보러가기 <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Style Story 3: 시크 -->
+        <div class="style-story-row">
+          <div class="style-story-media">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=80" alt="시크 무드">
+          </div>
+          <div class="style-story-info">
+            <span class="style-tag">LOOK 03 • MODERN CHIC</span>
+            <h3>깊이 있는 시선, 블랙 에스프레소 & 마그넷</h3>
+            <p>
+              트렌치코트, 레더 재킷과 어우러지는 도시적이고 세련된 무드.
+              빛의 각도에 따라 오묘하게 반사되는 자석 젤과 실버 포인트가 매력적입니다.
+            </p>
+            <div class="style-recommend-chips">
+              <span>#마그넷젤</span><span>#블랙네일</span><span>#모던룩</span>
+            </div>
+            <button class="btn btn-primary" onclick="filterByStyleAndGoShop('시크')">
+              시크 컬렉션 보러가기 <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SIZE GUIDE VIEW (사이즈 측정 가이드) -->
+    <section id="view-sizeguide" class="view-section">
+      <div class="page-title-banner">
+        <div class="container">
+          <span class="sub-title">PERFECT FIT GUIDE</span>
+          <h2>내 손에 딱 맞는 사이즈 가이드</h2>
+          <p>네일팁은 크기가 손톱과 완벽히 맞아야 가장 자연스럽고 오래 유지됩니다.</p>
+        </div>
+      </div>
+
+      <div class="container sizeguide-container">
+        <!-- 4 Step Measurement Visual -->
+        <div class="guide-steps-grid">
+          <div class="guide-step-card">
+            <div class="step-badge">STEP 01</div>
+            <h4>준비물 챙기기</h4>
+            <p>유연한 줄자 또는 <strong>투명 테이프와 볼펜, 일반 자</strong>를 준비해주세요.</p>
+          </div>
+          <div class="guide-step-card">
+            <div class="step-badge">STEP 02</div>
+            <h4>가장 넓은 폭 측정</h4>
+            <p>손톱 중앙의 <strong>가장 넓은 가로 부분</strong>에 테이프를 붙이고 양쪽 끝을 펜으로 표시합니다.</p>
+          </div>
+          <div class="guide-step-card">
+            <div class="step-badge">STEP 03</div>
+            <h4>손가락별 mm 기록</h4>
+            <p>엄지부터 새끼손가락까지 표시된 테이프 길이를 평평한 자에 대고 mm 단위로 잽니다.</p>
+          </div>
+          <div class="guide-step-card">
+            <div class="step-badge">STEP 04</div>
+            <h4>사이즈표와 비교</h4>
+            <p>아래 사이즈표와 대조하여 XS, S, M, L 중 가장 가까운 사이즈를 선택하세요.</p>
+          </div>
+        </div>
+
+        <!-- Interactive Size Calculator Tool -->
+        <div class="size-calculator-box">
+          <div class="calc-header">
+            <div class="calc-title">
+              <i data-lucide="calculator"></i>
+              <h3>스마트 네일팁 사이즈 자동 계산기</h3>
+            </div>
+            <p>손가락 폭(mm)을 입력하시면 나에게 꼭 맞는 호수를 즉시 판별해 드립니다.</p>
+          </div>
+
+          <div class="calc-inputs-grid">
+            <div class="finger-input-card">
+              <label for="thumbMm">👍 엄지 (Thumb)</label>
+              <div class="input-with-unit">
+                <input type="number" id="thumbMm" placeholder="15" value="15" min="8" max="22">
+                <span>mm</span>
+              </div>
+            </div>
+            <div class="finger-input-card">
+              <label for="indexMm">☝️ 검지 (Index)</label>
+              <div class="input-with-unit">
+                <input type="number" id="indexMm" placeholder="11.5" value="11.5" min="8" max="22" step="0.5">
+                <span>mm</span>
+              </div>
+            </div>
+            <div class="finger-input-card">
+              <label for="middleMm">🖕 중지 (Middle)</label>
+              <div class="input-with-unit">
+                <input type="number" id="middleMm" placeholder="12" value="12" min="8" max="22" step="0.5">
+                <span>mm</span>
+              </div>
+            </div>
+            <div class="finger-input-card">
+              <label for="ringMm">💍 약지 (Ring)</label>
+              <div class="input-with-unit">
+                <input type="number" id="ringMm" placeholder="11" value="11" min="8" max="22" step="0.5">
+                <span>mm</span>
+              </div>
+            </div>
+            <div class="finger-input-card">
+              <label for="pinkyMm">🤙 소지 (Pinky)</label>
+              <div class="input-with-unit">
+                <input type="number" id="pinkyMm" placeholder="8.5" value="8.5" min="6" max="18" step="0.5">
+                <span>mm</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-action-row">
+            <button class="btn btn-primary" onclick="calculateMySize()">
+              ✨ 내 추천 사이즈 진단하기
+            </button>
+            <button class="btn btn-outline" onclick="loadDefaultSize('S')">표준 S사이즈 채우기</button>
+            <button class="btn btn-outline" onclick="loadDefaultSize('M')">표준 M사이즈 채우기</button>
+          </div>
+
+          <!-- Calculated Result Display -->
+          <div class="calc-result-box" id="calcResultBox">
+            <div class="calc-result-inner">
+              <div class="result-badge">진단 결과</div>
+              <h4 id="calcResultTitle">고객님께 가장 잘 맞는 사이즈는 <strong>[ S (Small) ]</strong> 입니다!</h4>
+              <p id="calcResultDesc">엄지 15mm, 검지 11.5mm, 중지 12mm, 약지 11mm, 소지 8.5mm 규격으로 표준 S사이즈에 완벽히 호환됩니다.</p>
+              <div class="result-tip">
+                💡 <strong>구매 팁:</strong> 두 사이즈 사이에 걸치실 경우, 팁 안쪽을 살짝 파일로 갈아내어 쓸 수 있는 <strong>한 치수 큰 사이즈</strong>를 추천합니다.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Standard Size Chart Table -->
+        <div class="standard-table-wrapper">
+          <h3 class="table-title">표준 네일팁 호수표 (단위: mm)</h3>
+          <div class="table-responsive">
+            <table class="size-table">
+              <thead>
+                <tr>
+                  <th>호수 (Size)</th>
+                  <th>엄지 (Thumb)</th>
+                  <th>검지 (Index)</th>
+                  <th>중지 (Middle)</th>
+                  <th>약지 (Ring)</th>
+                  <th>소지 (Pinky)</th>
+                  <th>특징</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="size-pill">XS</span></td>
+                  <td>14 mm</td>
+                  <td>10.5 mm</td>
+                  <td>11 mm</td>
+                  <td>10 mm</td>
+                  <td>7.5 mm</td>
+                  <td>손톱이 작고 아담한 바디</td>
+                </tr>
+                <tr class="highlight-row">
+                  <td><span class="size-pill primary">S (추천)</span></td>
+                  <td>15 mm</td>
+                  <td>11.5 mm</td>
+                  <td>12 mm</td>
+                  <td>11 mm</td>
+                  <td>8.5 mm</td>
+                  <td>한국 여성 가장 대중적인 보통 사이즈 (70%)</td>
+                </tr>
+                <tr>
+                  <td><span class="size-pill">M</span></td>
+                  <td>16 mm</td>
+                  <td>12.5 mm</td>
+                  <td>13 mm</td>
+                  <td>12 mm</td>
+                  <td>9.5 mm</td>
+                  <td>손톱 바디가 넓고 시원한 편</td>
+                </tr>
+                <tr>
+                  <td><span class="size-pill">L</span></td>
+                  <td>17 mm</td>
+                  <td>13.5 mm</td>
+                  <td>14 mm</td>
+                  <td>13 mm</td>
+                  <td>10.5 mm</td>
+                  <td>여유 있는 넉넉한 바디</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tip Shape Comparison -->
+        <div class="shape-guide-section">
+          <h3 class="shape-title">손 모양에 어울리는 팁 쉐입 가이드</h3>
+          <div class="shape-cards-grid">
+            <div class="shape-card">
+              <div class="shape-icon">⬜</div>
+              <h4>숏 스퀘어 (Short Square)</h4>
+              <p>모서리가 단정한 사각형. 키보드 타이핑, 스마트폰 사용 등 일상 활동성이 가장 우수합니다.</p>
+            </div>
+            <div class="shape-card">
+              <div class="shape-icon">🥚</div>
+              <h4>숏 오벌 (Short Oval)</h4>
+              <p>둥근 달걀형으로 본래 내 손톱처럼 가장 자연스러운 느낌을 연출합니다.</p>
+            </div>
+            <div class="shape-card">
+              <div class="shape-icon">🌰</div>
+              <h4>미디엄 아몬드 (Medium Almond)</h4>
+              <p>끝이 갸름하게 모여 손가락이 1.5배 길고 여리여리해 보이는 마법의 쉐입입니다.</p>
+            </div>
+            <div class="shape-card">
+              <div class="shape-icon">📐</div>
+              <h4>코핀 (Coffin)</h4>
+              <p>끝으로 갈수록 좁아지며 끝이 일자인 트렌디한 인스타 감성 롱 쉐입입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. HOW TO USE VIEW (사용 가이드) -->
+    <section id="view-howtouse" class="view-section">
+      <div class="page-title-banner">
+        <div class="container">
+          <span class="sub-title">EASY & SAFE</span>
+          <h2>네일팁 붙이는 방법 & 보관 노하우</h2>
+          <p>초보자도 1초 만에 깔끔하게 부착하고, 손상 없이 부드럽게 떼어내는 가이드</p>
+        </div>
+      </div>
+
+      <div class="container howto-container">
+        <!-- Attach 5 Steps -->
+        <div class="howto-section-box">
+          <h3 class="howto-box-title">💗 1분 완성 초간단 부착 5 STEP</h3>
+          <div class="steps-flow-grid">
+            <div class="flow-card">
+              <span class="flow-num">01</span>
+              <h4>손톱 표면 정리</h4>
+              <p>동봉된 우드스틱으로 큐티클 라인을 밀어 정돈하고 미니파일로 손톱 길이를 다듬습니다.</p>
+            </div>
+            <div class="flow-card">
+              <span class="flow-num">02</span>
+              <h4>유수분 완벽 제거</h4>
+              <p><strong>가장 중요!</strong> 알코올 프랩패드로 손톱의 유분기와 먼지를 꼼꼼히 닦아 바짝 말려줍니다.</p>
+            </div>
+            <div class="flow-card">
+              <span class="flow-num">03</span>
+              <h4>팁 & 스티커 매칭</h4>
+              <p>손톱 크기보다 1mm 정도 작은 점착 젤스티커를 손톱 중심에 밀착해 붙여 보호필름을 뗍니다.</p>
+            </div>
+            <div class="flow-card">
+              <span class="flow-num">04</span>
+              <h4>45도 각도 부착</h4>
+              <p>큐티클 라인 1mm 앞쪽에서 팁을 45도 기울여 밀어 넣듯이 큐티클 쪽부터 맞춥니다.</p>
+            </div>
+            <div class="flow-card highlight">
+              <span class="flow-num">05</span>
+              <h4>10초간 꾹 누르기 ✨</h4>
+              <p>중앙과 양옆 모서리를 10초 이상 꾹 눌러주면 공기가 빠져나가며 강력 밀착 완성!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Removal Steps -->
+        <div class="howto-section-box">
+          <h3 class="howto-box-title">🌿 손톱 손상 0% 부드러운 제거 방법</h3>
+          <div class="remove-steps-grid">
+            <div class="remove-step">
+              <div class="rem-num">STEP 1</div>
+              <h4>네일 오일 바르기</h4>
+              <p>큐티클 라인과 네일팁 가장자리에 큐티클 오일(또는 핸드크림)을 2~3방울 듬뿍 발라줍니다.</p>
+            </div>
+            <div class="remove-step">
+              <div class="rem-num">STEP 2</div>
+              <h4>우드스틱으로 틈 만들기</h4>
+              <p>우드스틱에 아세톤이나 오일을 묻혀 팁 옆면의 틈새로 살살 밀어 넣어 공간을 만듭니다.</p>
+            </div>
+            <div class="remove-step">
+              <div class="rem-num">STEP 3</div>
+              <h4>부드럽게 떼어내기</h4>
+              <p>절대 억지로 뜯지 말고, 틈새로 오일이 스며들면 지렛대 원리로 살짝 밀어내어 분리합니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pro Tips Box -->
+        <div class="pro-tips-banner">
+          <h4>💡 유지력을 2배(최대 2주) 늘려주는 꿀팁 4가지!</h4>
+          <ul class="tips-list">
+            <li><strong>부착 후 2시간 동안 물 접촉 피하기:</strong> 젤 접착제가 완전 경화될 때까지 세안, 샤워를 미뤄주세요.</li>
+            <li><strong>취침 전 부착 강력 추천:</strong> 밤사이 손을 쓰지 않는 시간에 부착력이 최고치로 올라갑니다.</li>
+            <li><strong>손톱깎이 사용 금지:</strong> 팁 길이가 길다면 손톱깎이 대신 동봉된 파일로 갈아내어 조정하세요.</li>
+            <li><strong>팁 재사용 보관:</strong> 떼어낸 팁 뒷면의 젤 잔여물을 핀셋으로 제거한 뒤 전용 케이스에 보관하세요.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. REVIEW VIEW (리뷰) -->
+    <section id="view-review" class="view-section">
+      <div class="page-title-banner">
+        <div class="container">
+          <span class="sub-title">CUSTOMER SATISFACTION</span>
+          <h2>솔직한 실착 포토 리뷰</h2>
+          <p>고객님들이 손수 찍어 올려주신 리얼 착용 사진과 생생한 이야기</p>
+        </div>
+      </div>
+
+      <div class="container review-container">
+        <!-- Review Summary Scoreboard -->
+        <div class="review-score-board">
+          <div class="score-main">
+            <span class="score-large">4.9</span>
+            <div class="stars-gold">★★★★★</div>
+            <p>전체 리뷰 <strong>2,480건</strong></p>
+          </div>
+          <div class="score-bars">
+            <div class="bar-row">
+              <span>아주 만족해요 (5점)</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 92%"></div></div>
+              <span>92%</span>
+            </div>
+            <div class="bar-row">
+              <span>만족해요 (4점)</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 6%"></div></div>
+              <span>6%</span>
+            </div>
+            <div class="bar-row">
+              <span>보통이에요 (3점)</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 2%"></div></div>
+              <span>2%</span>
+            </div>
+          </div>
+          <div class="score-action">
+            <button class="btn btn-primary" onclick="openReviewModal()">
+              ✍️ 리뷰 작성하기 (적립금 1,000원)
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Review Options -->
+        <div class="review-filter-bar">
+          <div class="rf-chips">
+            <button class="rf-chip active" onclick="filterReviews('all', this)">전체 리뷰 (2,480)</button>
+            <button class="rf-chip" onclick="filterReviews('photo', this)">📸 포토리뷰 모아보기 (1,920)</button>
+            <button class="rf-chip" onclick="filterReviews('best', this)">👑 베스트 리뷰 (320)</button>
+          </div>
+        </div>
+
+        <!-- Review Cards Grid -->
+        <div class="review-cards-list" id="fullReviewList">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. ABOUT VIEW (브랜드 스토리) -->
+    <section id="view-about" class="view-section">
+      <div class="page-title-banner">
+        <div class="container">
+          <span class="sub-title">OUR PHILOSOPHY</span>
+          <h2>손끝에서 피어나는 가장 산뜻한 빛, LUEUR</h2>
+          <p>매일 달라지는 기분, 손톱 손상 걱정 없이 나만의 빛을 표현하세요.</p>
+        </div>
+      </div>
+
+      <div class="container about-container">
+        <div class="about-hero-block">
+          <div class="about-text">
+            <h3>"바쁜 일상 속, 나를 위한 가장 작은 사치"</h3>
+            <p>
+              네일샵 예약, 2시간의 긴 시술 시간, 젤 제거 때마다 얇아지고 부러지는 손톱...<br>
+              뤼에르(LUEUR)는 아름다움을 사랑하는 모든 이들이 손톱 건강을 해치지 않고도 
+              언제 어디서나 손끝의 설렘을 누릴 수 있도록 탄생했습니다.
+            </p>
+            <p>
+              기계로 찍어내는 획일적인 인쇄 팁이 아닙니다. 
+              전문 네일 아티스트가 베이스 젤부터 탑 젤까지 7단계에 걸쳐 손수 큐어링하여 제작하는 
+              100% 수제 살롱 퀄리티를 고집합니다.
+            </p>
+          </div>
+          <div class="about-img-wrap">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=80" alt="뤼에르 아틀리에">
+          </div>
+        </div>
+
+        <!-- 3 Brand Core Values -->
+        <div class="values-grid">
+          <div class="val-card">
+            <div class="val-num">01</div>
+            <h4>Salong Grade Gel</h4>
+            <p>일반 플라스틱 팁 위에 샵 전용 프리미엄 빌더 젤을 두텁게 올려 영롱한 광택과 단단한 내구성을 만듭니다.</p>
+          </div>
+          <div class="val-card">
+            <div class="val-num">02</div>
+            <h4>Ultra Natural Curve</h4>
+            <p>동양인 여성의 손톱 곡률 데이터를 분석하여, 들뜸이나 머리카락 끼임 없는 완벽한 밀착 핏을 구현했습니다.</p>
+          </div>
+          <div class="val-card">
+            <div class="val-num">03</div>
+            <h4>Eco & Reusable</h4>
+            <p>한 번 쓰고 버리는 것이 아닌, 끈적임 없는 젤스티커로 최소 5~10회 이상 재사용 가능한 에코 뷰티를 실천합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer & CS Center -->
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-col cs-col">
+        <h4>CUSTOMER CENTER</h4>
+        <div class="cs-phone">1588-9284</div>
+        <p class="cs-time">
+          평일 10:00 - 18:00 (점심 12:30 - 13:30)<br>
+          주말 및 공휴일 휴무 / 카카오톡 상담 @뤼에르네일
+        </p>
+        <button class="btn btn-outline btn-sm kakao-btn" onclick="openFaqModal()">
+          💬 1:1 카카오톡 문의하기
+        </button>
+      </div>
+
+      <div class="footer-col">
+        <h4>ABOUT LUEUR</h4>
+        <ul class="footer-links">
+          <li><a href="#about" onclick="navigateTo('about')">브랜드 스토리</a></li>
+          <li><a href="#sizeguide" onclick="navigateTo('sizeguide')">사이즈 가이드</a></li>
+          <li><a href="#howtouse" onclick="navigateTo('howtouse')">사용법 & 꿀팁</a></li>
+          <li><a href="#review" onclick="navigateTo('review')">고객 착용 리뷰</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>SHOPPING GUIDE</h4>
+        <ul class="footer-links">
+          <li><a href="javascript:void(0)" onclick="openPolicyModal('delivery')">배송 안내 (우체국택배)</a></li>
+          <li><a href="javascript:void(0)" onclick="openPolicyModal('exchange')">교환 및 반품 규정</a></li>
+          <li><a href="javascript:void(0)" onclick="openPolicyModal('faq')">자주 묻는 질문 (FAQ)</a></li>
+          <li><a href="javascript:void(0)" onclick="openPolicyModal('terms')">이용약관</a></li>
+          <li><a href="javascript:void(0)" onclick="openPolicyModal('privacy')">개인정보처리방침</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col notice-col">
+        <h4>NOTICE & EVENT</h4>
+        <ul class="notice-list">
+          <li><a href="javascript:void(0)">[공지] 카카오톡 플러스친구 추가 시 1,000원 쿠폰</a></li>
+          <li><a href="javascript:void(0)">[이벤트] 3만원 이상 구매 시 무료배송 혜택</a></li>
+          <li><a href="javascript:void(0)">[안내] 수제 네일팁 제작 및 발송 일정 안내</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="company-info">
+          상호명: (주)뤼에르 뷰티랩 | 대표: 안유진 | 사업자등록번호: 214-88-12345 | 통신판매업신고: 제2026-서울강남-01234호<br>
+          주소: 서울특별시 강남구 테헤란로 152 뤼에르빌딩 4층 | 개인정보책임자: 안유진 (help@lueurnail.kr)
+        </p>
+        <p class="copyright">&copy; 2026 LUEUR NAIL. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Floating Navigation Bar (10~30대 모바일 최적화 고정 바) -->
+  <nav class="mobile-bottom-bar" aria-label="모바일 하단 메뉴">
+    <button class="m-nav-item active" onclick="navigateTo('home')">
+      <i data-lucide="home"></i>
+      <span>홈</span>
+    </button>
+    <button class="m-nav-item" onclick="navigateTo('shop')">
+      <i data-lucide="sparkles"></i>
+      <span>SHOP</span>
+    </button>
+    <button class="m-nav-item" onclick="openSearchModal()">
+      <i data-lucide="search"></i>
+      <span>검색</span>
+    </button>
+    <button class="m-nav-item" onclick="openWishlistModal()">
+      <i data-lucide="heart"></i>
+      <span class="m-badge wishlist-count" style="display:none">0</span>
+      <span>찜</span>
+    </button>
+    <button class="m-nav-item" onclick="openMyPageModal()">
+      <i data-lucide="user"></i>
+      <span>마이</span>
+    </button>
+  </nav>
+
+  <!-- ==================== MODALS & DRAWERS ==================== -->
+
+  <!-- 1. Product Detail Modal (상세페이지 팝업: 완벽한 구매 동선) -->
+  <div class="modal-overlay" id="productModalOverlay" onclick="closeProductModal(event)">
+    <div class="modal-content product-detail-modal" id="productModalCard">
+      <button class="modal-close-btn" onclick="closeProductModal()" aria-label="상세 닫기">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="detail-layout">
+        <!-- Left: Image Gallery -->
+        <div class="detail-gallery">
+          <div class="main-image-frame">
+            <img src="" alt="상품 상세 이미지" id="modalMainImg">
+            <span class="detail-badge" id="modalBadge">BEST</span>
+          </div>
+          <div class="thumbnail-row" id="modalThumbs">
+            <!-- Thumbs generated by JS -->
+          </div>
+        </div>
+
+        <!-- Right: Information & Purchase Selector -->
+        <div class="detail-info-col">
+          <div class="detail-header-info">
+            <div class="detail-rating-row">
+              <span class="stars-gold">★★★★★</span>
+              <span class="score-text" id="modalRating">4.9</span>
+              <span class="review-count-text" id="modalReviewCount">(리뷰 342개)</span>
+            </div>
+            <h2 class="detail-product-name" id="modalTitle">밀키 블러썸 핑크 네일팁</h2>
+            <p class="detail-subtitle" id="modalSubtitle">물먹은 시럽 핑크에 흩날리는 벚꽃 글리터를 얹은 베스트 네일</p>
+            
+            <div class="detail-price-box">
+              <div class="price-main-row">
+                <span class="discount-rate" id="modalDiscount">20%</span>
+                <span class="current-price" id="modalPrice">16,800원</span>
+                <span class="original-price" id="modalOriginPrice">21,000원</span>
+              </div>
+              <div class="benefit-tag-row">
+                <span class="b-tag">첫구매 3,000원 할인쿠폰 가능</span>
+                <span class="b-tag">30,000원 이상 무료배송</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Essential Notice Badges -->
+          <div class="detail-quick-meta">
+            <div class="meta-item"><i data-lucide="truck"></i> 우체국 익일 출고</div>
+            <div class="meta-item"><i data-lucide="package"></i> 알코올스왑+우드스틱+파일+스티커 포함 풀키트</div>
+          </div>
+
+          <!-- Options Form -->
+          <div class="detail-options-box">
+            <!-- Shape Selection -->
+            <div class="option-field">
+              <label for="optShape">팁 쉐입 (Shape)</label>
+              <select id="optShape" onchange="updateModalPrice()">
+                <option value="숏 스퀘어">숏 스퀘어 (데일리 활동성 최우수)</option>
+                <option value="숏 오벌" selected>숏 오벌 (달걀형 자연스러운 핏)</option>
+                <option value="미디엄 아몬드">미디엄 아몬드 (+1,000원)</option>
+                <option value="코핀">코핀 (+1,000원)</option>
+              </select>
+            </div>
+
+            <!-- Size Selection + Size Guide Link -->
+            <div class="option-field">
+              <div class="label-with-guide">
+                <label for="optSize">손톱 사이즈 (Size)</label>
+                <button type="button" class="link-btn-guide" onclick="openSizeGuideQuickModal()">
+                  📏 내 사이즈 측정법 보기
+                </button>
+              </div>
+              <select id="optSize">
+                <option value="XS">XS (손톱이 작고 아담한 편: 14/10.5/11/10/7.5mm)</option>
+                <option value="S" selected>S (보통 손톱 여성 70% 추천: 15/11.5/12/11/8.5mm)</option>
+                <option value="M">M (손톱 바디가 넓은 편: 16/12.5/13/12/9.5mm)</option>
+                <option value="L">L (넉넉하고 여유 있는 편: 17/13.5/14/13/10.5mm)</option>
+              </select>
+            </div>
+
+            <!-- Kit Additional Option -->
+            <div class="option-field">
+              <label for="optKit">추가 부착 키트</label>
+              <select id="optKit" onchange="updateModalPrice()">
+                <option value="none">기본 무료 키트만 받기 (프랩패드+스틱+파일+접착젤)</option>
+                <option value="glue">강력 워터프루프 젤글루 추가 (+2,500원)</option>
+                <option value="sticker">초강력 밀착 젤스티커 2회분 추가 (+1,500원)</option>
+              </select>
+            </div>
+
+            <!-- Quantity & Total -->
+            <div class="quantity-total-row">
+              <div class="qty-stepper">
+                <button type="button" onclick="changeModalQty(-1)">-</button>
+                <input type="text" id="modalQty" value="1" readonly>
+                <button type="button" onclick="changeModalQty(1)">+</button>
+              </div>
+              <div class="modal-total-price">
+                <span>총 합계금액</span>
+                <strong id="modalTotalPrice">16,800원</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="detail-action-buttons">
+            <button class="btn btn-wish" id="modalWishBtn" onclick="toggleModalWish()">
+              <i data-lucide="heart"></i>
+            </button>
+            <button class="btn btn-cart" onclick="addModalToCart()">
+              <i data-lucide="shopping-bag"></i> 장바구니
+            </button>
+            <button class="btn btn-buy" onclick="buyModalNow()">
+              바로 구매하기
+            </button>
+          </div>
+
+          <!-- Detail Tabs Accordion (특징, 키트구성, 부착방법, 배송/교환) -->
+          <div class="detail-tabs-section">
+            <details class="detail-acc-item" open>
+              <summary>💎 이 네일팁의 특징 & 디테일</summary>
+              <div class="acc-body" id="modalFeatureDesc">
+                <!-- Injected by JS -->
+              </div>
+            </details>
+            <details class="detail-acc-item">
+              <summary>📦 기본 동봉 키트 구성품</summary>
+              <div class="acc-body">
+                <ul>
+                  <li>수제 젤 네일팁 본품 10pcs + 여분 비상팁 4pcs (총 14pcs 증정)</li>
+                  <li>초밀착 젤 스티커 2장 (총 48회 부착 가능)</li>
+                  <li>알코올 유수분 프랩패드 2매</li>
+                  <li>우드스틱 1개 & 미니 네일 파일 1개</li>
+                </ul>
+              </div>
+            </details>
+            <details class="detail-acc-item">
+              <summary>🚚 배송 및 교환/반품 안내</summary>
+              <div class="acc-body">
+                <p><strong>배송:</strong> 우체국 택배 (오후 2시 이전 주문 시 당일~익일 안전 출고)</p>
+                <p><strong>배송비:</strong> 3,000원 (30,000원 이상 결제 시 무료배송)</p>
+                <p><strong>교환/반품:</strong> 수제 네일팁 특성상 개봉 및 착용 흔적이 없을 경우 수령 후 7일 이내 교환/반품 가능합니다. (첫 구매 시 사이즈 미스 1회 무상 교환 케어)</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Cart Side Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="closeCartDrawer()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <div class="cart-title">
+        <i data-lucide="shopping-bag"></i>
+        <h3>장바구니 (<span id="cartTotalItemsCount">0</span>)</h3>
+      </div>
+      <button class="drawer-close" onclick="closeCartDrawer()" aria-label="장바구니 닫기">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+
+    <!-- Free Delivery Progress Bar -->
+    <div class="free-shipping-bar">
+      <p class="free-ship-text" id="freeShipText"><strong>15,000원</strong> 더 담으면 무료배송!</p>
+      <div class="progress-track">
+        <div class="progress-fill" id="freeShipProgress" style="width: 50%"></div>
+      </div>
+    </div>
+
+    <!-- Cart Item List -->
+    <div class="cart-items-container" id="cartItemsList">
+      <!-- Injected by JS -->
+    </div>
+
+    <!-- Cart Footer & Checkout -->
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-lines">
+        <div class="summary-line">
+          <span>상품 금액</span>
+          <span id="cartSubtotal">0원</span>
+        </div>
+        <div class="summary-line">
+          <span>배송비</span>
+          <span id="cartShippingFee">3,000원</span>
+        </div>
+        <div class="summary-line total-line">
+          <span>예상 결제금액</span>
+          <span class="total-price-text" id="cartFinalTotal">0원</span>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-block checkout-btn" onclick="openCheckoutFromCart()">
+        주문서 작성하기 (<span id="checkoutTotalAmount">0원</span>)
+      </button>
+    </div>
+  </aside>
+
+  <!-- 3. Checkout Simulation Modal (결제 모달) -->
+  <div class="modal-overlay" id="checkoutModalOverlay">
+    <div class="modal-content checkout-modal-card">
+      <div class="modal-header">
+        <h3>결제하기 (주문서)</h3>
+        <button class="modal-close-btn" onclick="closeCheckoutModal()"><i data-lucide="x"></i></button>
+      </div>
+      <div class="checkout-body">
+        <div class="checkout-section">
+          <h4>1. 배송지 정보</h4>
+          <div class="form-row">
+            <input type="text" id="orderName" class="form-input" placeholder="받으시는 분 성함" value="안유진">
+            <input type="tel" id="orderPhone" class="form-input" placeholder="휴대폰 번호" value="010-9876-5432">
+          </div>
+          <div class="form-row">
+            <input type="text" id="orderAddress" class="form-input" placeholder="배송지 주소" value="서울특별시 강남구 역삼로 123 뤼에르빌라 301호">
+          </div>
+          <div class="form-row">
+            <select class="form-input">
+              <option>배송 시 요청사항을 선택해주세요</option>
+              <option selected>문 앞에 놓아주세요</option>
+              <option>배송 전 연락 바랍니다</option>
+              <option>경비실에 맡겨주세요</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="checkout-section">
+          <h4>2. 할인 쿠폰 적용</h4>
+          <div class="coupon-apply-box">
+            <select class="form-input" id="couponSelect" onchange="recalculateCheckout()">
+              <option value="0">쿠폰 선택 안함</option>
+              <option value="3000" selected>🎉 신규 가입 웰컴 3,000원 쿠폰</option>
+              <option value="2000">🌸 카카오 플러스친구 2,000원 쿠폰</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="checkout-section">
+          <h4>3. 결제 수단 선택</h4>
+          <div class="payment-methods-grid">
+            <label class="pay-radio"><input type="radio" name="payMethod" checked><span>간편결제 (카카오페이 / 네이버페이)</span></label>
+            <label class="pay-radio"><input type="radio" name="payMethod"><span>신용/체크카드</span></label>
+            <label class="pay-radio"><input type="radio" name="payMethod"><span>무통장 입금</span></label>
+          </div>
+        </div>
+
+        <div class="checkout-section final-amount-box">
+          <div class="summary-line"><span>주문 금액</span><span id="chkSubtotal">0원</span></div>
+          <div class="summary-line"><span>쿠폰 할인</span><span class="text-rose" id="chkDiscount">-3,000원</span></div>
+          <div class="summary-line"><span>배송비</span><span id="chkDelivery">0원</span></div>
+          <div class="summary-line total-line"><span>최종 결제 금액</span><strong id="chkFinalAmount">0원</strong></div>
+        </div>
+
+        <button class="btn btn-primary btn-block" onclick="completeCheckout()">
+          안전 결제 완료하기
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Order Complete Success Modal -->
+  <div class="modal-overlay" id="orderSuccessModal">
+    <div class="modal-content success-modal-card text-center">
+      <div class="success-icon-wrap">
+        <i data-lucide="check-circle-2"></i>
+      </div>
+      <h2>주문이 성공적으로 완료되었습니다!</h2>
+      <p class="order-no-txt">주문번호: <strong>LN20261002-0941</strong></p>
+      <p class="order-desc">
+        고객님의 소중한 손끝을 위해 정성을 다해 제작 후<br>
+        우체국 택배로 안전하게 발송해 드리겠습니다.
+      </p>
+      <div class="success-actions">
+        <button class="btn btn-primary" onclick="closeOrderSuccessModal(); navigateTo('shop');">
+          쇼핑 계속하기
+        </button>
+        <button class="btn btn-outline" onclick="closeOrderSuccessModal(); openMyPageModal();">
+          주문 내역 확인하기
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Wishlist Modal -->
+  <div class="modal-overlay" id="wishlistModalOverlay" onclick="closeWishlistModal(event)">
+    <div class="modal-content wishlist-modal-card">
+      <div class="modal-header">
+        <h3>내가 찜한 상품 (<span id="wishlistCountModal">0</span>)</h3>
+        <button class="modal-close-btn" onclick="closeWishlistModal()"><i data-lucide="x"></i></button>
+      </div>
+      <div class="wishlist-body" id="wishlistItemsList">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Search Overlay Modal -->
+  <div class="modal-overlay" id="searchModalOverlay" onclick="closeSearchModal(event)">
+    <div class="search-modal-card">
+      <div class="search-input-header">
+        <i data-lucide="search"></i>
+        <input type="text" id="globalSearchInput" placeholder="디자인명, 스타일, 컬러 검색 (예: 핑크, 프렌치, 시럽, 글리터)" autofocus oninput="handleSearchInput()">
+        <button class="search-clear-btn" onclick="clearSearchInput()"><i data-lucide="x"></i></button>
+      </div>
+      <div class="search-recommend-tags">
+        <span>추천 검색어:</span>
+        <button class="rec-tag" onclick="quickSearch('벚꽃 핑크')">벚꽃 핑크</button>
+        <button class="rec-tag" onclick="quickSearch('글리터')">글리터</button>
+        <button class="rec-tag" onclick="quickSearch('프렌치')">프렌치</button>
+        <button class="rec-tag" onclick="quickSearch('마그넷')">마그넷</button>
+        <button class="rec-tag" onclick="quickSearch('데일리')">데일리</button>
+      </div>
+      <div class="search-results-area" id="searchResultsArea">
+        <p class="search-placeholder-text">검색어를 입력하시면 실시간으로 매칭되는 네일팁을 보여드립니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. My Page Modal -->
+  <div class="modal-overlay" id="myPageModalOverlay" onclick="closeMyPageModal(event)">
+    <div class="modal-content mypage-modal-card">
+      <div class="modal-header">
+        <h3>마이페이지 (MY PAGE)</h3>
+        <button class="modal-close-btn" onclick="closeMyPageModal()"><i data-lucide="x"></i></button>
+      </div>
+      <div class="mypage-body">
+        <div class="user-profile-badge">
+          <div class="user-avatar">💗</div>
+          <div class="user-info">
+            <h4>안유진 고객님</h4>
+            <span class="user-grade">LUEUR VIP CLUB (무료배송 혜택)</span>
+          </div>
+        </div>
+        <div class="mypage-stats-grid">
+          <div class="stat-box">
+            <span class="stat-val" id="myCouponCount">2장</span>
+            <span class="stat-lbl">보유 쿠폰</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-val">2,500P</span>
+            <span class="stat-lbl">적립금</span>
+          </div>
+          <div class="stat-box" onclick="closeMyPageModal(); openWishlistModal();" style="cursor:pointer">
+            <span class="stat-val wishlist-count">0개</span>
+            <span class="stat-lbl">찜한 상품</span>
+          </div>
+        </div>
+        <div class="mypage-menu-list">
+          <div class="my-menu-item" onclick="alert('최근 주문 내역 1건이 배송 준비 중입니다.')">
+            <span>📦 주문 / 배송 조회 (1)</span>
+            <i data-lucide="chevron-right"></i>
+          </div>
+          <div class="my-menu-item" onclick="closeMyPageModal(); navigateTo('sizeguide')">
+            <span>📏 내 손톱 저장된 사이즈 (S)</span>
+            <i data-lucide="chevron-right"></i>
+          </div>
+          <div class="my-menu-item" onclick="closeMyPageModal(); navigateTo('review')">
+            <span>✍️ 작성 가능한 리뷰 (1)</span>
+            <i data-lucide="chevron-right"></i>
+          </div>
+          <div class="my-menu-item" onclick="openPolicyModal('faq')">
+            <span>❓ 자주 묻는 질문 (FAQ)</span>
+            <i data-lucide="chevron-right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. Policy & CS Information Modal (배송, 교환/반품, FAQ 공용) -->
+  <div class="modal-overlay" id="policyModalOverlay" onclick="closePolicyModal(event)">
+    <div class="modal-content policy-modal-card">
+      <div class="modal-header">
+        <h3 id="policyModalTitle">고객 안내</h3>
+        <button class="modal-close-btn" onclick="closePolicyModal()"><i data-lucide="x"></i></button>
+      </div>
+      <div class="policy-body" id="policyModalContent">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. Write Review Modal -->
+  <div class="modal-overlay" id="writeReviewModalOverlay" onclick="closeReviewModal(event)">
+    <div class="modal-content write-review-card">
+      <div class="modal-header">
+        <h3>착용 포토리뷰 작성</h3>
+        <button class="modal-close-btn" onclick="closeReviewModal()"><i data-lucide="x"></i></button>
+      </div>
+      <div class="write-review-body">
+        <div class="form-row">
+          <label>구매 상품 선택</label>
+          <select id="reviewProdSelect" class="form-input">
+            <option>밀키 블러썸 핑크 수제 네일팁</option>
+            <option>오로라 누드 글리터 네일팁</option>
+            <option>프렌치 라일락 시럽 네일팁</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>만족도 별점</label>
+          <div class="star-rating-select">
+            <span class="star-btn active" onclick="selectStar(1)">★</span>
+            <span class="star-btn active" onclick="selectStar(2)">★</span>
+            <span class="star-btn active" onclick="selectStar(3)">★</span>
+            <span class="star-btn active" onclick="selectStar(4)">★</span>
+            <span class="star-btn active" onclick="selectStar(5)">★</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <label>리뷰 내용</label>
+          <textarea id="reviewText" class="form-input" rows="4" placeholder="착용감, 팁의 자연스러움, 색감 등에 대한 솔직한 후기를 남겨주세요."></textarea>
+        </div>
+        <div class="form-row">
+          <label>착용 사진 첨부</label>
+          <input type="text" class="form-input" id="reviewImgUrl" placeholder="사진 URL (비워두시면 샘플 착용샷이 등록됩니다)">
+        </div>
+        <button class="btn btn-primary btn-block" onclick="submitReview()">
+          리뷰 등록하고 1,000원 적립받기
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
